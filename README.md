@@ -44,8 +44,8 @@ Full EDA available in [`notebooks/eda.ipynb`](notebooks/eda.ipynb).
 </p>
 
 <p align="center">
-  <img src="notebooks/eda_plots/histograms.png" alt="Feature Distributions" width="700"/>
-  <br><em>Distribution of all features</em>
+  <img src="notebooks/eda_plots/age_histogram.png" alt="Age Distribution" width="500"/>
+  <br><em>Age distribution of diabetic patients</em>
 </p>
 
 <p align="center">
@@ -54,8 +54,8 @@ Full EDA available in [`notebooks/eda.ipynb`](notebooks/eda.ipynb).
 </p>
 
 <p align="center">
-  <img src="notebooks/eda_plots/boxplots.png" alt="Boxplots" width="700"/>
-  <br><em>Outlier detection via boxplots</em>
+  <img src="notebooks/eda_plots/boxplot_3.png" alt="Boxplots" width="600"/>
+  <br><em>Outlier detection via boxplots (each feature)</em>
 </p>
 
 ---
@@ -106,11 +106,18 @@ mlflow ui
 # Opens at: http://127.0.0.1:5000
 ```
 
-### MLflow UI Screenshot
+### Screenshots
 
 <p align="center">
-  <img src="assets/mlflow_ui.png" alt="MLflow UI" width="800"/>
-  <br><em>MLflow dashboard showing all 5 model runs with metrics comparison</em>
+  <img src="assets/screenshot_pipeline.png" alt="DVC Pipeline" width="45%"/>
+  <img src="assets/screenshot_mlflow.png" alt="MLflow UI" width="45%"/>
+  <br><em>DVC pipeline run (left) & MLflow experiment dashboard (right)</em>
+</p>
+
+<p align="center">
+  <img src="assets/screenshot_metrics.png" alt="Model Metrics" width="45%"/>
+  <img src="assets/screenshot_models.png" alt="Model Registry" width="45%"/>
+  <br><em>Metrics comparison (left) & Model Registry (right)</em>
 </p>
 
 ### What's Tracked
