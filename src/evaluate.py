@@ -67,8 +67,9 @@ def run():
         print("No experiment found. Run train.py first.")
         return
     runs = mlflow.search_runs(experiment_ids=[experiment.experiment_id])
+    latest_runs = runs.loc[runs.groupby("tags.mlflow.runName")["start_time"].idxmax()]
     all_metrics = {}
-    for _, run_row in runs.iterrows():
+    for _, run_row in latest_runs.iterrows():
         run_id = run_row["run_id"]
         model_type = run_row.get("tags.mlflow.runName", "unknown")
         model_uri = f"runs:/{run_id}/model"

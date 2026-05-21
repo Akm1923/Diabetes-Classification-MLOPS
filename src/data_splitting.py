@@ -1,10 +1,12 @@
 import pandas as pd
 import numpy as np
 import os
+import yaml
 from imblearn.over_sampling import SMOTE
 from sklearn.model_selection import train_test_split
 
 PROCESSED_PATH = os.path.join("data", "processed", "engineered.csv")
+PARAMS_PATH = os.path.join("params.yaml")
 X_TRAIN_PATH = os.path.join("data", "processed", "X_train.csv")
 X_TEST_PATH = os.path.join("data", "processed", "X_test.csv")
 Y_TRAIN_PATH = os.path.join("data", "processed", "y_train.csv")
@@ -15,7 +17,14 @@ def load_engineered(path=PROCESSED_PATH):
     print(f"Loaded engineered data: {df.shape}")
     return df
 
-def split_and_balance(df, target_col="Outcome", test_size=0.10, random_state=50):
+def load_params():
+    with open(PARAMS_PATH, "r") as f:
+        return yaml.safe_load(f)
+
+def split_and_balance(df, target_col="Outcome"):
+    cfg = load_params()
+    test_size = cfg["data"]["test_size"]
+    random_state = cfg["data"]["random_state"]
     X = df.drop(columns=[target_col])
     y = df[target_col]
     print(f"Before SMOTE: {y.value_counts().to_dict()}")
