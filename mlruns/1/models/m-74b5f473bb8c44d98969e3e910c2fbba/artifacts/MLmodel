@@ -1,0 +1,24 @@
+artifact_path: file:C:/Users/hp/Desktop/mlflow/Projects--Data-analysis-and-Machine-Learning/Data
+  Analysis/Diabetes dataset -analysis/mlruns/1/models/m-74b5f473bb8c44d98969e3e910c2fbba/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.12.0
+model_id: m-74b5f473bb8c44d98969e3e910c2fbba
+model_size_bytes: 136840
+model_uuid: m-74b5f473bb8c44d98969e3e910c2fbba
+prompts: null
+run_id: 6ab9a3ca3c4f481fa5f821e56f848c4e
+utc_time_created: '2026-05-21 19:35:45.531196'

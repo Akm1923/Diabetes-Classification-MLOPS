@@ -32,8 +32,6 @@ stages:
       - src/train.py
       - data/processed/X_train.csv
       - data/processed/y_train.csv
-    outs:
-      - models/
 
   evaluation:
     cmd: python src/evaluate.py
@@ -41,13 +39,5 @@ stages:
       - src/evaluate.py
       - data/processed/X_test.csv
       - data/processed/y_test.csv
-      - models/
-    metrics:
-      - reports/metrics.json:
-          cache: false
-    plots:
-      - reports/cm_LogisticRegression.png
-      - reports/cm_SVC.png
-      - reports/cm_RandomForest.png
-      - reports/cm_DecisionTree.png
-      - reports/cm_GradientBoosting.png
+    outs:
+      - reports/
