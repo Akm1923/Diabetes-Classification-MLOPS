@@ -39,23 +39,15 @@ Full EDA available in [`notebooks/eda.ipynb`](notebooks/eda.ipynb).
 ### EDA Plots
 
 <p align="center">
-  <img src="notebooks/eda_plots/heatmap.png" alt="Correlation Heatmap" width="500"/>
-  <br><em>Feature correlation with Outcome</em>
+  <img src="notebooks/eda_plots/heatmap.png" alt="Correlation Heatmap" width="45%"/>
+  <img src="notebooks/eda_plots/age_histogram.png" alt="Age Distribution" width="45%"/>
+  <br><em>Feature correlation (left) & Age distribution of diabetic patients (right)</em>
 </p>
 
 <p align="center">
-  <img src="notebooks/eda_plots/age_histogram.png" alt="Age Distribution" width="500"/>
-  <br><em>Age distribution of diabetic patients</em>
-</p>
-
-<p align="center">
-  <img src="notebooks/eda_plots/pairplot.png" alt="Pairplot" width="700"/>
-  <br><em>Pairwise feature relationships colored by Outcome</em>
-</p>
-
-<p align="center">
-  <img src="notebooks/eda_plots/boxplot_3.png" alt="Boxplots" width="600"/>
-  <br><em>Outlier detection via boxplots (each feature)</em>
+  <img src="notebooks/eda_plots/pairplot.png" alt="Pairplot" width="45%"/>
+  <img src="notebooks/eda_plots/boxplot_3.png" alt="Boxplots" width="45%"/>
+  <br><em>Feature relationships (left) & Outlier detection via boxplots (right)</em>
 </p>
 
 ---
@@ -154,12 +146,12 @@ mlflow ui
 ### Confusion Matrices
 
 <p align="center">
-  <img src="reports/cm_RandomForest.png" alt="RF Confusion Matrix" width="350"/>
-  <img src="reports/cm_GradientBoosting.png" alt="GB Confusion Matrix" width="350"/>
+  <img src="reports/cm_RandomForest.png" alt="RF" width="30%"/>
+  <img src="reports/cm_GradientBoosting.png" alt="GB" width="30%"/>
   <br>
-  <img src="reports/cm_LogisticRegression.png" alt="LR Confusion Matrix" width="350"/>
-  <img src="reports/cm_DecisionTree.png" alt="DT Confusion Matrix" width="350"/>
-  <br><em>Confusion matrices for all models (80/20 split, SMOTE balanced)</em>
+  <img src="reports/cm_LogisticRegression.png" alt="LR" width="30%"/>
+  <img src="reports/cm_DecisionTree.png" alt="DT" width="30%"/>
+  <br><em>Confusion matrices: RF, GB (top) & LR, DT (bottom) — 80/20 split, SMOTE balanced</em>
 </p>
 
 ### Winner: Random Forest
