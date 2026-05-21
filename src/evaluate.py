@@ -67,6 +67,7 @@ def run():
         print("No experiment found. Run train.py first.")
         return
     runs = mlflow.search_runs(experiment_ids=[experiment.experiment_id])
+    all_metrics = {}
     for _, run_row in runs.iterrows():
         run_id = run_row["run_id"]
         model_type = run_row.get("tags.mlflow.runName", "unknown")
@@ -76,6 +77,14 @@ def run():
         except Exception:
             continue
         acc, prec, rec, f1, auc, ll, plot_path = evaluate_model(model, X_test, y_test, model_type)
+        all_metrics[model_type] = {
+            "test_accuracy": round(acc, 4),
+            "test_precision": round(prec, 4),
+            "test_recall": round(rec, 4),
+            "test_f1_score": round(f1, 4),
+            "test_auc_roc": round(auc, 4),
+            "test_log_loss": round(ll, 4),
+        }
         with mlflow.start_run(run_id=run_id):
             mlflow.log_metrics({
                 "test_accuracy": acc,
@@ -87,6 +96,11 @@ def run():
             })
             mlflow.log_artifact(plot_path)
         print(f"Metrics logged for {model_type}")
+    import json
+    metrics_path = os.path.join(REPORTS_DIR, "metrics.json")
+    with open(metrics_path, "w") as f:
+        json.dump(all_metrics, f, indent=2)
+    print(f"\nSaved metrics to {metrics_path}")
 
 if __name__ == "__main__":
     run()
