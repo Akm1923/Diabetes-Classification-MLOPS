@@ -227,6 +227,44 @@ model_params:
 
 ---
 
+---
+
+## Streamlit Web Application
+
+An interactive web app built with **Streamlit** that loads the best **RandomForest** model (from MLflow Model Registry) and provides real-time diabetes risk prediction.
+
+### Features
+- **8 input fields** with icons, descriptions, value ranges, and units
+- **Real-time prediction** — probability score + risk classification
+- **Feature importance** bar chart showing which factors drove the decision
+- **Professionally designed UI** — cards, gradients, responsive layout
+
+### Screenshot
+
+<p align="center">
+  <img src="assets/screenshot_app.png" alt="Streamlit App" width="800"/>
+  <br><em>Diabetes Risk Classifier — Streamlit UI</em>
+</p>
+
+### Run Locally
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+### Deploy on Streamlit Cloud
+
+1. Push repo to GitHub
+2. Go to [streamlit.io/cloud](https://streamlit.io/cloud)
+3. Sign in with GitHub → **New app**
+4. Select repo → Branch `main` → File `app.py`
+5. Click **Deploy** 🚀
+
+The model pickle (`models/rf_model.pkl`) is tracked in Git, so it deploys seamlessly on Streamlit Cloud without needing MLflow.
+
+---
+
 ## Tech Stack
 
 | Category | Tools |
