@@ -4,6 +4,13 @@
 
 ---
 
+<p align="center">
+  <img src="assets/screenshot_app.png" alt="Streamlit App" width="850"/>
+  <br><em>🩺 Diabetes Risk Classifier — Streamlit web app with real-time prediction</em>
+</p>
+
+---
+
 ## Dataset
 
 **Pima Indians Diabetes Database** — 768 samples, 8 features, binary target (Outcome):
@@ -238,13 +245,6 @@ An interactive web app built with **Streamlit** that loads the best **RandomFore
 - **Real-time prediction** — probability score + risk classification
 - **Feature importance** bar chart showing which factors drove the decision
 - **Professionally designed UI** — cards, gradients, responsive layout
-
-### Screenshot
-
-<p align="center">
-  <img src="assets/screenshot_app.png" alt="Streamlit App" width="800"/>
-  <br><em>Diabetes Risk Classifier — Streamlit UI</em>
-</p>
 
 ### Run Locally
 
