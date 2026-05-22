@@ -8,6 +8,7 @@
   <img src="assets/screenshot_app.png" alt="Streamlit App" width="850"/>
   <br><em>🩺 Diabetes Risk Classifier — Streamlit web app with real-time prediction</em>
 </p>
+streamlit app: https://diabetes-classification-mlops-nndm7hqu6reutsgljwhgcp.streamlit.app/
 
 ---
 
