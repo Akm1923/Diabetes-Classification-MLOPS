@@ -24,8 +24,9 @@ mlflow.db
 # DVC plots
 dvc_plots/
 
-# Models (MLflow handles registry, not Git)
-models/
+# Models (ignore all except production pickle)
+models/*
+!models/rf_model.pkl
 
 # Data (DVC tracked, not Git)
 data/

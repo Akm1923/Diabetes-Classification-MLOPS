@@ -1,15 +1,13 @@
 import streamlit as st
-import mlflow
+import joblib
 import pandas as pd
 import numpy as np
 
 st.set_page_config(page_title="Diabetes Classifier", page_icon="🩺", layout="centered")
 
-mlflow.set_tracking_uri("sqlite:///mlflow.db")
-
 @st.cache_resource
 def load_model():
-    return mlflow.pyfunc.load_model("models:/Diabetes_RandomForest/1")
+    return joblib.load("models/rf_model.pkl")
 
 model = load_model()
 
@@ -25,7 +23,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("🩺 Diabetes Risk Classifier")
-st.markdown("*MLflow Model Registry — RandomForest v1*")
+st.markdown("*RandomForest — trained via MLOps pipeline*")
 st.markdown("---")
 
 col1, col2 = st.columns(2)
@@ -53,8 +51,7 @@ if st.button("🔍 Predict Diabetes Risk"):
         "Insulin", "BMI", "DiabetesPedigreeFunction", "Age"
     ])
 
-    raw_model = model.get_raw_model()
-    prob = raw_model.predict_proba(input_df)[0]
+    prob = model.predict_proba(input_df)[0]
     pred = int(prob[1] >= 0.5)
     risk_pct = round(prob[1] * 100, 1)
     no_risk_pct = round(prob[0] * 100, 1)
@@ -73,6 +70,6 @@ if st.button("🔍 Predict Diabetes Risk"):
         st.success(f"✅ Low risk ({risk_pct}%). Maintain healthy habits.")
 
     st.markdown("### Feature Impact")
-    importances = raw_model.feature_importances_
+    importances = model.feature_importances_
     feat_df = pd.DataFrame({"Feature": input_df.columns, "Importance": importances}).sort_values("Importance", ascending=False)
     st.bar_chart(feat_df.set_index("Feature"), height=300)
